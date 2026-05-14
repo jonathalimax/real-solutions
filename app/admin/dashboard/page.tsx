@@ -23,7 +23,7 @@ export default function AdminDashboard() {
           return acc
         }, {} as Record<string, string>)
 
-        if (cookies['admin_session']) {
+        if (cookies['auth_token']) {
           setAuthenticated(true)
         } else {
           router.push('/admin/login')
