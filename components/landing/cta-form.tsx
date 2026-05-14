@@ -107,37 +107,42 @@ export default function CTAForm({ language }: CTAFormProps) {
   return (
     <section
       id="cta-form"
-      className="py-20 px-4 sm:px-6 lg:px-8"
+      className="py-20 px-4 sm:px-6 lg:px-8 relative"
     >
-      <div className="mx-auto max-w-2xl">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse at center, rgba(20,184,166,0.07) 0%, transparent 70%)' }}
+      />
+      <div className="relative mx-auto max-w-2xl">
         <div className="text-center mb-12">
-          <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
             {text.title}
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-white/50">
             {text.subtitle}
           </p>
         </div>
 
         <form
           onSubmit={handleSubmit}
-          className="border border-border/50 rounded-lg p-8 bg-secondary/20"
+          className="glass-card p-8"
+          style={{ borderColor: 'rgba(20,184,166,0.2)' }}
         >
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-foreground mb-2">
+              <label className="block text-sm font-medium text-white/70 mb-2">
                 {text.service}
               </label>
               <Select value={service || 'placeholder'} onValueChange={(val) => val !== 'placeholder' && setService(val)}>
-                <SelectTrigger className="w-full">
+                <SelectTrigger className="w-full bg-white/5 border-white/10 text-white focus:border-[#14b8a6] focus:ring-[#14b8a6]/30">
                   <SelectValue placeholder={text.service} />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-[#0d1b2e] border-white/10">
                   <SelectItem value="placeholder" disabled>
                     {text.service}
                   </SelectItem>
                   {text.services.map((svc) => (
-                    <SelectItem key={svc.value} value={svc.value}>
+                    <SelectItem key={svc.value} value={svc.value} className="text-white/80 focus:bg-white/10">
                       {svc.label}
                     </SelectItem>
                   ))}
@@ -146,7 +151,7 @@ export default function CTAForm({ language }: CTAFormProps) {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-foreground mb-2">
+              <label className="block text-sm font-medium text-white/70 mb-2">
                 {text.phone}
               </label>
               <Input
@@ -154,9 +159,9 @@ export default function CTAForm({ language }: CTAFormProps) {
                 placeholder="11 99999-9999"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="w-full"
+                className="w-full bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-[#14b8a6] focus-visible:ring-[#14b8a6]/30"
               />
-              <p className="text-xs text-muted-foreground mt-2">
+              <p className="text-xs text-white/30 mt-2">
                 {language === 'pt-BR'
                   ? 'Será aberto o WhatsApp com uma mensagem personalizada'
                   : 'WhatsApp will open with a personalized message'}
@@ -172,7 +177,8 @@ export default function CTAForm({ language }: CTAFormProps) {
             <Button
               type="submit"
               disabled={loading}
-              className="w-full bg-primary text-primary-foreground hover:bg-primary/90 text-lg py-6"
+              className="w-full text-white text-lg py-6 border-0 hover:opacity-90 transition-opacity"
+              style={{ background: 'linear-gradient(135deg, #0d9488, #4f46e5)' }}
             >
               {loading ? (language === 'pt-BR' ? 'Enviando...' : 'Sending...') : text.cta}
             </Button>
