@@ -57,6 +57,7 @@ export default function CTAForm({ language }: CTAFormProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setMessage('')
 
     if (!phone || !service) {
       setMessage(language === 'pt-BR' ? 'Preencha todos os campos' : 'Fill all fields')
@@ -114,11 +115,14 @@ export default function CTAForm({ language }: CTAFormProps) {
               <label className="block text-sm font-medium text-foreground mb-2">
                 {text.service}
               </label>
-              <Select value={service} onValueChange={setService}>
+              <Select value={service || 'placeholder'} onValueChange={(val) => val !== 'placeholder' && setService(val)}>
                 <SelectTrigger className="w-full">
-                  <SelectValue />
+                  <SelectValue placeholder={text.service} />
                 </SelectTrigger>
                 <SelectContent>
+                  <SelectItem value="placeholder" disabled>
+                    {text.service}
+                  </SelectItem>
                   {text.services.map((svc) => (
                     <SelectItem key={svc.value} value={svc.value}>
                       {svc.label}
