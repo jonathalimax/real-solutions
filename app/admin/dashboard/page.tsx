@@ -13,21 +13,23 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Check if user is authenticated
+    // Check if user is authenticated via session cookie
     const checkAuth = async () => {
       try {
-        const response = await fetch('/api/leads', {
-          method: 'GET',
-          credentials: 'include',
-        })
+        // Check if admin_session cookie exists
+        const cookies = document.cookie.split('; ').reduce((acc, cookie) => {
+          const [key, value] = cookie.split('=')
+          acc[key] = value
+          return acc
+        }, {} as Record<string, string>)
 
-        if (response.status === 401) {
-          router.push('/admin/login')
-        } else {
+        if (cookies['admin_session']) {
           setAuthenticated(true)
+        } else {
+          router.push('/admin/login')
         }
       } catch (error) {
-        router.push('/admin/login')
+        console.error('Auth check error:', error)
       } finally {
         setLoading(false)
       }
