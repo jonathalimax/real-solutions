@@ -6,6 +6,7 @@ import SocialProof from '@/components/landing/social-proof'
 import Services from '@/components/landing/services'
 import HowItWorks from '@/components/landing/how-it-works'
 import FeaturedProject from '@/components/landing/featured-project'
+import TrustedCompanies from '@/components/landing/trusted-companies'
 import Differentials from '@/components/landing/differentials'
 import WhatToExpect from '@/components/landing/what-to-expect'
 import Pricing from '@/components/landing/pricing'
@@ -36,6 +37,7 @@ export default function Home() {
         <Services language={language} />
         <HowItWorks language={language} />
         <FeaturedProject language={language} />
+        <TrustedCompanies language={language} />
         <Differentials language={language} />
         <WhatToExpect language={language} />
         <Pricing language={language} onSelectPlan={handleSelectPlan} />
