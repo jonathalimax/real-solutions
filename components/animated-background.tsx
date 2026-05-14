@@ -1,68 +1,68 @@
 export default function AnimatedBackground() {
   return (
     <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-      {/* Teal orb — top left */}
+      {/* Teal — top left, large */}
       <div
-        className="absolute rounded-full blur-3xl"
+        className="absolute rounded-full blur-2xl"
         style={{
-          top: '-80px',
-          left: '10%',
-          width: '400px',
-          height: '400px',
-          background: 'radial-gradient(circle, rgba(20,184,166,0.55) 0%, transparent 70%)',
-          animation: 'float-orb 18s ease-in-out infinite',
+          top: '-60px',
+          left: '5%',
+          width: '500px',
+          height: '500px',
+          background: 'radial-gradient(circle, rgba(20,184,166,0.7) 0%, rgba(20,184,166,0.2) 50%, transparent 70%)',
+          animation: 'float-orb 12s ease-in-out infinite',
         }}
       />
-      {/* Indigo orb — right side */}
+      {/* Indigo — right, medium */}
       <div
-        className="absolute rounded-full blur-3xl"
+        className="absolute rounded-full blur-2xl"
         style={{
-          top: '20%',
-          right: '-60px',
-          width: '320px',
-          height: '320px',
-          background: 'radial-gradient(circle, rgba(99,102,241,0.5) 0%, transparent 70%)',
-          animation: 'float-orb 22s ease-in-out infinite reverse',
-          animationDelay: '-6s',
-        }}
-      />
-      {/* Sky blue orb — center */}
-      <div
-        className="absolute rounded-full blur-3xl"
-        style={{
-          top: '50%',
-          left: '50%',
-          width: '280px',
-          height: '280px',
-          background: 'radial-gradient(circle, rgba(14,165,233,0.45) 0%, transparent 70%)',
-          animation: 'pulse-glow 14s ease-in-out infinite',
+          top: '15%',
+          right: '-40px',
+          width: '420px',
+          height: '420px',
+          background: 'radial-gradient(circle, rgba(99,102,241,0.65) 0%, rgba(99,102,241,0.18) 50%, transparent 70%)',
+          animation: 'float-orb-reverse 10s ease-in-out infinite',
           animationDelay: '-3s',
         }}
       />
-      {/* Teal orb — bottom right */}
+      {/* Sky — center, pulsing */}
       <div
         className="absolute rounded-full blur-3xl"
         style={{
-          bottom: '-40px',
-          right: '15%',
-          width: '360px',
-          height: '360px',
-          background: 'radial-gradient(circle, rgba(20,184,166,0.4) 0%, transparent 70%)',
-          animation: 'float-orb 20s ease-in-out infinite',
-          animationDelay: '-10s',
+          top: '45%',
+          left: '40%',
+          width: '380px',
+          height: '380px',
+          background: 'radial-gradient(circle, rgba(14,165,233,0.55) 0%, rgba(14,165,233,0.15) 50%, transparent 70%)',
+          animation: 'pulse-glow 8s ease-in-out infinite',
+          animationDelay: '-2s',
         }}
       />
-      {/* Indigo orb — bottom left */}
+      {/* Teal — bottom right */}
       <div
-        className="absolute rounded-full blur-3xl"
+        className="absolute rounded-full blur-2xl"
         style={{
-          bottom: '10%',
-          left: '-40px',
-          width: '240px',
-          height: '240px',
-          background: 'radial-gradient(circle, rgba(99,102,241,0.4) 0%, transparent 70%)',
-          animation: 'float-orb 16s ease-in-out infinite reverse',
-          animationDelay: '-8s',
+          bottom: '-40px',
+          right: '10%',
+          width: '460px',
+          height: '460px',
+          background: 'radial-gradient(circle, rgba(20,184,166,0.6) 0%, rgba(20,184,166,0.15) 50%, transparent 70%)',
+          animation: 'float-orb 14s ease-in-out infinite',
+          animationDelay: '-6s',
+        }}
+      />
+      {/* Indigo — bottom left */}
+      <div
+        className="absolute rounded-full blur-2xl"
+        style={{
+          bottom: '5%',
+          left: '-30px',
+          width: '340px',
+          height: '340px',
+          background: 'radial-gradient(circle, rgba(99,102,241,0.55) 0%, rgba(99,102,241,0.15) 50%, transparent 70%)',
+          animation: 'float-orb-reverse 11s ease-in-out infinite',
+          animationDelay: '-5s',
         }}
       />
     </div>
