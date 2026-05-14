@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Hero from '@/components/landing/hero'
 import SocialProof from '@/components/landing/social-proof'
 import Services from '@/components/landing/services'
@@ -16,6 +16,14 @@ import AnimatedBackground from '@/components/animated-background'
 
 export default function Home() {
   const [language, setLanguage] = useState<'pt-BR' | 'en'>('pt-BR')
+  const [selectedPlan, setSelectedPlan] = useState<string>('')
+
+  const handleSelectPlan = (planName: string) => {
+    setSelectedPlan(planName)
+    setTimeout(() => {
+      document.getElementById('cta-form')?.scrollIntoView({ behavior: 'smooth' })
+    }, 50)
+  }
 
   return (
     <div className="min-h-screen bg-background relative">
@@ -29,8 +37,8 @@ export default function Home() {
         <FeaturedProject language={language} />
         <Differentials language={language} />
         <WhatToExpect language={language} />
-        <Pricing language={language} />
-        <CTAForm language={language} />
+        <Pricing language={language} onSelectPlan={handleSelectPlan} />
+        <CTAForm language={language} selectedPlan={selectedPlan} />
       </main>
       <Footer language={language} />
     </div>

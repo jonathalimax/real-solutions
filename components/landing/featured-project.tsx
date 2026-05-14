@@ -9,9 +9,8 @@ interface FeaturedProjectProps {
 
 const content = {
   'pt-BR': {
-    title: 'Projeto em destaque',
-    subtitle: 'Realwise - Sistema Financeiro Digital',
-    description: 'Plataforma financeira completa com gestão de receitas, despesas, investimentos e planejamento. Tudo em um só lugar para você controlar seu dinheiro.',
+    label: 'Projeto em destaque',
+    title: 'Realwise — Sistema Financeiro Digital',
     visitLabel: 'Visitar projeto →',
     features: [
       { title: 'Gestão Completa', items: ['Receitas e despesas', 'Controle de cartões', 'Importação de extratos'] },
@@ -20,9 +19,8 @@ const content = {
     ],
   },
   en: {
-    title: 'Featured Project',
-    subtitle: 'Realwise - Digital Financial System',
-    description: 'Complete financial platform with income, expense, investment and planning management. Everything in one place to control your money.',
+    label: 'Featured Project',
+    title: 'Realwise — Digital Financial System',
     visitLabel: 'Visit project →',
     features: [
       { title: 'Full Management', items: ['Income and expenses', 'Card control', 'Statement import'] },
@@ -39,7 +37,7 @@ export default function FeaturedProject({ language }: FeaturedProjectProps) {
   const text = content[language]
 
   return (
-    <section ref={ref as React.RefObject<HTMLElement>} className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="featured-project" ref={ref as React.RefObject<HTMLElement>} className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Image */}
@@ -55,15 +53,15 @@ export default function FeaturedProject({ language }: FeaturedProjectProps) {
               }}
             >
               <Image
-                src="https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src="/realwise-preview.png"
                 alt="Realwise financial platform"
-                width={800}
-                height={533}
+                width={1400}
+                height={933}
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div
                 className="absolute inset-0"
-                style={{ background: 'linear-gradient(135deg, rgba(99,102,241,0.2) 0%, transparent 60%)' }}
+                style={{ background: 'linear-gradient(135deg, rgba(99,102,241,0.15) 0%, transparent 60%)' }}
               />
               <div className="absolute bottom-4 left-4 right-4">
                 <div className="glass-card px-4 py-2 inline-block text-[#5eead4] text-sm font-medium">
@@ -76,10 +74,9 @@ export default function FeaturedProject({ language }: FeaturedProjectProps) {
           {/* Text */}
           <div className={`animate-on-scroll animate-scale-fade delay-150 ${isVisible ? 'is-visible' : ''}`}>
             <span className="text-sm font-semibold tracking-widest text-[#14b8a6] uppercase">
-              {text.title}
+              {text.label}
             </span>
-            <h2 className="text-4xl font-bold text-white my-4">{text.subtitle}</h2>
-            <p className="text-lg text-white/50 mb-8 leading-relaxed">{text.description}</p>
+            <h2 className="text-4xl font-bold text-white my-4">{text.title}</h2>
 
             <div className="space-y-4">
               {text.features.map((feature, i) => (

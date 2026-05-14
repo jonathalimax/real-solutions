@@ -1,0 +1,99 @@
+<h2>Which visual direction should we take?</h2>
+<p class="subtitle">Pick the overall vibe — colors, feel, and energy of the site</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="dark-bold" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:linear-gradient(135deg,#0a0a1a 0%,#12122a 100%);padding:20px;min-height:180px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-30px;right:-30px;width:120px;height:120px;background:radial-gradient(circle,rgba(139,92,246,0.5),transparent);border-radius:50%;"></div>
+      <div style="position:absolute;bottom:-20px;left:10px;width:80px;height:80px;background:radial-gradient(circle,rgba(59,130,246,0.4),transparent);border-radius:50%;"></div>
+      <div style="background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.3);border-radius:8px;padding:6px 12px;width:fit-content;">
+        <span style="color:#a78bfa;font-size:11px;font-weight:600;letter-spacing:1px;">REAL SOLUTIONS</span>
+      </div>
+      <div style="color:#fff;font-size:18px;font-weight:800;line-height:1.2;">Transform your<br><span style="background:linear-gradient(90deg,#a78bfa,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">business digitally</span></div>
+      <div style="display:flex;gap:6px;margin-top:4px;">
+        <div style="background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;border-radius:6px;padding:5px 12px;font-size:10px;font-weight:700;">Start a project</div>
+        <div style="border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.7);border-radius:6px;padding:5px 12px;font-size:10px;">Learn more</div>
+      </div>
+      <div style="display:flex;gap:6px;margin-top:auto;">
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:6px 8px;flex:1;text-align:center;">
+          <div style="color:#a78bfa;font-size:10px;font-weight:700;">📱 Apps</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:6px 8px;flex:1;text-align:center;">
+          <div style="color:#60a5fa;font-size:10px;font-weight:700;">🌐 Sites</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:6px 8px;flex:1;text-align:center;">
+          <div style="color:#34d399;font-size:10px;font-weight:700;">⚙️ Bots</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Dark & Bold — Tech Agency</h3>
+      <p>Deep dark background, vibrant purple-to-blue gradients, glassmorphism cards, glowing orbs animated background. Feels premium and high-tech. Strong visual impact from first scroll.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="vibrant-modern" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#fff;padding:20px;min-height:180px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;right:0;width:100%;height:60px;background:linear-gradient(135deg,#f0abfc,#818cf8,#38bdf8);opacity:0.15;"></div>
+      <div style="background:linear-gradient(135deg,#7c3aed,#0ea5e9);color:#fff;border-radius:20px;padding:5px 14px;width:fit-content;font-size:11px;font-weight:700;">
+        🚀 Real Solutions
+      </div>
+      <div style="color:#111;font-size:18px;font-weight:800;line-height:1.2;">Transform your <span style="background:linear-gradient(90deg,#7c3aed,#0ea5e9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">business</span><br>with digital impact</div>
+      <div style="display:flex;gap:6px;margin-top:4px;">
+        <div style="background:linear-gradient(135deg,#7c3aed,#0ea5e9);color:#fff;border-radius:8px;padding:5px 14px;font-size:10px;font-weight:700;">Start a project ✨</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:auto;">
+        <div style="background:linear-gradient(135deg,rgba(124,58,237,0.08),rgba(124,58,237,0.03));border:1px solid rgba(124,58,237,0.2);border-radius:8px;padding:8px;">
+          <div style="font-size:14px;">📱</div>
+          <div style="color:#111;font-size:9px;font-weight:700;margin-top:2px;">Mobile Apps</div>
+        </div>
+        <div style="background:linear-gradient(135deg,rgba(14,165,233,0.08),rgba(14,165,233,0.03));border:1px solid rgba(14,165,233,0.2);border-radius:8px;padding:8px;">
+          <div style="font-size:14px;">🌐</div>
+          <div style="color:#111;font-size:9px;font-weight:700;margin-top:2px;">Websites</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Vibrant & Modern — Light Mode</h3>
+      <p>White base with bold purple-to-cyan gradients, colorful card accents, energetic feel. Clean and approachable, easier to read. Works well for clients who aren't pure "tech" buyers.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="dark-teal" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:linear-gradient(160deg,#0d1f1f 0%,#0a1628 100%);padding:20px;min-height:180px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-20px;right:-20px;width:100px;height:100px;background:radial-gradient(circle,rgba(20,184,166,0.4),transparent);border-radius:50%;"></div>
+      <div style="position:absolute;bottom:-10px;left:20px;width:60px;height:60px;background:radial-gradient(circle,rgba(99,102,241,0.3),transparent);border-radius:50%;"></div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div style="width:6px;height:6px;background:#14b8a6;border-radius:50%;box-shadow:0 0 8px #14b8a6;"></div>
+        <span style="color:#5eead4;font-size:11px;font-weight:600;letter-spacing:2px;">REAL SOLUTIONS</span>
+      </div>
+      <div style="color:#fff;font-size:18px;font-weight:800;line-height:1.2;">Digital solutions that <span style="color:#2dd4bf;">grow</span><br>with your business</div>
+      <div style="display:flex;gap:6px;margin-top:4px;">
+        <div style="background:linear-gradient(135deg,#0d9488,#0891b2);color:#fff;border-radius:6px;padding:5px 12px;font-size:10px;font-weight:700;">Start a project</div>
+        <div style="border:1px solid rgba(45,212,191,0.3);color:#5eead4;border-radius:6px;padding:5px 12px;font-size:10px;">Learn more</div>
+      </div>
+      <div style="display:flex;gap:6px;margin-top:auto;">
+        <div style="flex:1;border-left:2px solid #14b8a6;padding-left:8px;">
+          <div style="color:#fff;font-size:9px;font-weight:700;">120+</div>
+          <div style="color:#5eead4;font-size:8px;">Projects</div>
+        </div>
+        <div style="flex:1;border-left:2px solid #6366f1;padding-left:8px;">
+          <div style="color:#fff;font-size:9px;font-weight:700;">98%</div>
+          <div style="color:#818cf8;font-size:8px;">Satisfied</div>
+        </div>
+        <div style="flex:1;border-left:2px solid #0ea5e9;padding-left:8px;">
+          <div style="color:#fff;font-size:9px;font-weight:700;">5★</div>
+          <div style="color:#7dd3fc;font-size:8px;">Rated</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Dark Teal & Indigo — Pro & Trustworthy</h3>
+      <p>Dark navy/teal palette, teal and indigo accents, subtle glows. Feels professional and trustworthy — like an enterprise agency. More conservative than option A but still visually striking.</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:16px;text-align:center;">Click a card to select, then tell me in the terminal. You can also describe a mix.</p>

@@ -13,6 +13,7 @@ import {
 
 interface CTAFormProps {
   language: 'pt-BR' | 'en'
+  selectedPlan?: string
 }
 
 const content = {
@@ -60,12 +61,27 @@ const content = {
   },
 }
 
-export default function CTAForm({ language }: CTAFormProps) {
+const PLAN_NAMES = {
+  'pt-BR': { Starter: 'Starter', Growth: 'Growth', Customizado: 'Customizado' },
+  en: { Starter: 'Starter', Growth: 'Growth', Custom: 'Custom' },
+}
+
+export default function CTAForm({ language, selectedPlan }: CTAFormProps) {
   const text = content[language]
+  const [activePlan, setActivePlan] = useState(selectedPlan ?? '')
   const [service, setService] = useState('')
   const [phone, setPhone] = useState('')
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState('')
+
+  // Sync when parent updates selectedPlan (pricing card click)
+  if (selectedPlan !== undefined && selectedPlan !== activePlan && selectedPlan !== '') {
+    setActivePlan(selectedPlan)
+  }
+
+  const planLabels = language === 'pt-BR'
+    ? ['Starter', 'Growth', 'Customizado']
+    : ['Starter', 'Growth', 'Custom']
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -129,6 +145,30 @@ export default function CTAForm({ language }: CTAFormProps) {
           style={{ borderColor: 'rgba(20,184,166,0.2)' }}
         >
           <div className="space-y-6">
+            {/* Plan selector */}
+            <div>
+              <label className="block text-sm font-medium text-white/70 mb-3">
+                {language === 'pt-BR' ? 'Plano de interesse' : 'Plan of interest'}
+              </label>
+              <div className="flex gap-2 flex-wrap">
+                {planLabels.map((plan) => (
+                  <button
+                    key={plan}
+                    type="button"
+                    onClick={() => setActivePlan(plan)}
+                    className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+                    style={
+                      activePlan === plan
+                        ? { background: 'linear-gradient(135deg, #0d9488, #4f46e5)', color: '#fff', border: '1px solid transparent' }
+                        : { background: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.5)', border: '1px solid rgba(255,255,255,0.1)' }
+                    }
+                  >
+                    {plan}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <div>
               <label className="block text-sm font-medium text-white/70 mb-2">
                 {text.service}

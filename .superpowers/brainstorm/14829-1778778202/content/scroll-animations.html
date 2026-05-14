@@ -1,0 +1,44 @@
+<h2>How should sections animate in as you scroll?</h2>
+<p class="subtitle">This applies to cards, section headings, and content blocks as they enter the viewport</p>
+
+<div class="options">
+
+  <div class="option" data-choice="fade-up" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Fade + Slide Up</h3>
+      <p>Elements fade in while rising ~30px from below. Staggered so cards appear one after another. The most universally loved animation — smooth, professional, never distracting.</p>
+      <div style="margin-top:10px;display:flex;gap:8px;">
+        <div style="background:#1e293b;border:1px solid rgba(20,184,166,0.3);border-radius:6px;padding:6px 12px;color:rgba(255,255,255,0.8);font-size:11px;animation:fadeUp 2s ease-in-out infinite;">Card 1 ↑</div>
+        <div style="background:#1e293b;border:1px solid rgba(99,102,241,0.3);border-radius:6px;padding:6px 12px;color:rgba(255,255,255,0.8);font-size:11px;animation:fadeUp 2s ease-in-out infinite 0.15s;">Card 2 ↑</div>
+        <div style="background:#1e293b;border:1px solid rgba(14,165,233,0.3);border-radius:6px;padding:6px 12px;color:rgba(255,255,255,0.8);font-size:11px;animation:fadeUp 2s ease-in-out infinite 0.3s;">Card 3 ↑</div>
+      </div>
+      <style>@keyframes fadeUp{0%,100%{opacity:1;transform:translateY(0)}50%{opacity:0.3;transform:translateY(12px)}}</style>
+    </div>
+  </div>
+
+  <div class="option" data-choice="scale-fade" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Scale + Fade</h3>
+      <p>Elements scale from 95% → 100% while fading in. Feels more premium and subtle than slide — no movement, just "appearing." Works especially well for cards and hero elements.</p>
+      <div style="margin-top:10px;display:flex;gap:8px;">
+        <div style="background:#1e293b;border:1px solid rgba(20,184,166,0.3);border-radius:6px;padding:6px 12px;color:rgba(255,255,255,0.8);font-size:11px;animation:scaleFade 2s ease-in-out infinite;">Card 1</div>
+        <div style="background:#1e293b;border:1px solid rgba(99,102,241,0.3);border-radius:6px;padding:6px 12px;color:rgba(255,255,255,0.8);font-size:11px;animation:scaleFade 2s ease-in-out infinite 0.2s;">Card 2</div>
+        <div style="background:#1e293b;border:1px solid rgba(14,165,233,0.3);border-radius:6px;padding:6px 12px;color:rgba(255,255,255,0.8);font-size:11px;animation:scaleFade 2s ease-in-out infinite 0.4s;">Card 3</div>
+      </div>
+      <style>@keyframes scaleFade{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.3;transform:scale(0.93)}}</style>
+    </div>
+  </div>
+
+  <div class="option" data-choice="both" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Mix — Slide Up for cards, Scale for hero</h3>
+      <p>Hero and section headings use scale+fade (feels grand), while grid cards use staggered fade+slide. Different motion for different elements adds life without being overdone.</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:16px;">We'll use Intersection Observer (no extra library) to trigger these only when elements enter the viewport.</p>

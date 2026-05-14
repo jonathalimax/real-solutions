@@ -1,0 +1,58 @@
+<h2>Which animated background style?</h2>
+<p class="subtitle">These all run purely in CSS/canvas — no heavy libraries needed</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="gradient-orbs" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0a1628;min-height:160px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+      <div style="position:absolute;top:-30px;left:10%;width:180px;height:180px;background:radial-gradient(circle,rgba(20,184,166,0.5) 0%,transparent 70%);border-radius:50%;animation:orb1 6s ease-in-out infinite;"></div>
+      <div style="position:absolute;bottom:-40px;right:10%;width:150px;height:150px;background:radial-gradient(circle,rgba(99,102,241,0.4) 0%,transparent 70%);border-radius:50%;animation:orb2 8s ease-in-out infinite;"></div>
+      <div style="position:absolute;top:40%;left:50%;width:100px;height:100px;background:radial-gradient(circle,rgba(14,165,233,0.3) 0%,transparent 70%);border-radius:50%;transform:translate(-50%,-50%);animation:orb3 10s ease-in-out infinite;"></div>
+      <div style="color:rgba(255,255,255,0.2);font-size:11px;font-weight:600;letter-spacing:2px;z-index:1;">FLOATING GRADIENT ORBS</div>
+      <style>
+        @keyframes orb1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(20px,-30px) scale(1.1)}}
+        @keyframes orb2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-15px,20px) scale(0.9)}}
+        @keyframes orb3{0%,100%{transform:translate(-50%,-50%) scale(1)}33%{transform:translate(-40%,-60%) scale(1.2)}66%{transform:translate(-60%,-40%) scale(0.8)}}
+      </style>
+    </div>
+    <div class="card-body">
+      <h3>Floating Gradient Orbs</h3>
+      <p>Soft glowing blobs of teal, indigo, and blue drifting slowly behind content. Pure CSS, zero performance cost. The current site attempts this but with near-invisible opacity — we'd make them vivid and actually animated.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="mesh-gradient" onclick="toggleSelect(this)">
+    <div class="card-image" style="min-height:160px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+      <div style="position:absolute;inset:0;background:linear-gradient(45deg,#0d1f1f,#0a1628,#12102a,#0d1f1f);background-size:400% 400%;animation:meshMove 8s ease infinite;"></div>
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(20,184,166,0.3),transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(99,102,241,0.3),transparent 50%),radial-gradient(ellipse at 60% 80%,rgba(14,165,233,0.2),transparent 50%);animation:meshShift 12s ease-in-out infinite alternate;"></div>
+      <div style="color:rgba(255,255,255,0.3);font-size:11px;font-weight:600;letter-spacing:2px;z-index:1;">ANIMATED MESH GRADIENT</div>
+      <style>
+        @keyframes meshMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+        @keyframes meshShift{0%{opacity:0.6}100%{opacity:1}}
+      </style>
+    </div>
+    <div class="card-body">
+      <h3>Animated Mesh Gradient</h3>
+      <p>Shifting color gradients that slowly morph across the background — like northern lights. Very modern, used by top SaaS landing pages. Still pure CSS, great performance, adds atmospheric depth.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="grid-glow" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#080f1a;min-height:160px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+      <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(20,184,166,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(20,184,166,0.07) 1px,transparent 1px);background-size:40px 40px;"></div>
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:200px;height:200px;background:radial-gradient(circle,rgba(20,184,166,0.2) 0%,transparent 70%);animation:pulse 3s ease-in-out infinite;"></div>
+      <div style="position:absolute;top:20%;right:20%;width:80px;height:80px;background:radial-gradient(circle,rgba(99,102,241,0.25) 0%,transparent 70%);animation:pulse 4s ease-in-out infinite 1s;"></div>
+      <div style="color:rgba(94,234,212,0.5);font-size:11px;font-weight:600;letter-spacing:2px;z-index:1;">DOT GRID + GLOW</div>
+      <style>
+        @keyframes pulse{0%,100%{opacity:0.4;transform:translate(-50%,-50%) scale(0.9)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.1)}}
+      </style>
+    </div>
+    <div class="card-body">
+      <h3>Grid + Radial Glow</h3>
+      <p>Subtle dot/line grid with pulsing glowing circles on top. Very popular in dev tools, AI products, and tech agencies. Crisp and intentional-looking — communicates precision and engineering craft.</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:16px;text-align:center;">You can also mix — e.g. "grid with orbs on top." Click your pick and tell me in the terminal.</p>

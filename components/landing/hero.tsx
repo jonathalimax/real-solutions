@@ -11,31 +11,21 @@ interface HeroProps {
 const content = {
   'pt-BR': {
     badge: 'Crescemos juntos — sem limites de escala',
-    title: ['Transforme seu negócio com', 'soluções digitais de impacto'],
+    titleLine1: 'Transforme seu negócio com',
+    titleLine2: 'soluções digitais',
     subtitle: 'Criamos aplicativos, websites, automações e bots que crescem com você',
     cta: 'Começar um projeto',
-    ctaSecondary: 'Saber mais',
-    stats: [
-      { value: '120+', label: 'Projetos' },
-      { value: '98%', label: 'Satisfação' },
-      { value: '5★', label: 'Avaliação' },
-    ],
+    ctaSecondary: 'Ver serviços',
   },
   en: {
     badge: 'We grow together — unlimited scale',
-    title: ['Transform your business with', 'impactful digital solutions'],
+    titleLine1: 'Transform your business with',
+    titleLine2: 'digital solutions',
     subtitle: 'We create apps, websites, automations and bots that grow with you',
     cta: 'Start a project',
-    ctaSecondary: 'Learn more',
-    stats: [
-      { value: '120+', label: 'Projects' },
-      { value: '98%', label: 'Satisfaction' },
-      { value: '5★', label: 'Rated' },
-    ],
+    ctaSecondary: 'See services',
   },
 }
-
-const ACCENT_COLORS = ['#14b8a6', '#6366f1', '#0ea5e9'] as const
 
 export default function Hero({ language }: HeroProps) {
   const { ref, isVisible } = useInView()
@@ -43,6 +33,10 @@ export default function Hero({ language }: HeroProps) {
 
   const scrollToForm = () => {
     document.getElementById('cta-form')?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  const scrollToServices = () => {
+    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
@@ -60,7 +54,7 @@ export default function Hero({ language }: HeroProps) {
             </div>
 
             <h1 className="text-5xl sm:text-6xl font-bold leading-tight mb-6 text-white">
-              {text.title[0]}{' '}
+              {text.titleLine1}{' '}
               <span
                 style={{
                   background: 'linear-gradient(90deg, #14b8a6, #6366f1)',
@@ -68,7 +62,7 @@ export default function Hero({ language }: HeroProps) {
                   WebkitTextFillColor: 'transparent',
                 }}
               >
-                {text.title[1]}
+                {text.titleLine2}
               </span>
             </h1>
 
@@ -76,7 +70,7 @@ export default function Hero({ language }: HeroProps) {
               {text.subtitle}
             </p>
 
-            <div className="flex gap-4 flex-wrap mb-12">
+            <div className="flex gap-4 flex-wrap">
               <Button
                 size="lg"
                 onClick={scrollToForm}
@@ -88,24 +82,11 @@ export default function Hero({ language }: HeroProps) {
               <Button
                 variant="outline"
                 size="lg"
+                onClick={scrollToServices}
                 className="border-white/20 text-white/80 hover:bg-white/5 hover:border-white/40"
               >
                 {text.ctaSecondary}
               </Button>
-            </div>
-
-            {/* Stats row */}
-            <div className="flex gap-8">
-              {text.stats.map((stat, i) => (
-                <div
-                  key={stat.label}
-                  className="border-l-2 pl-4"
-                  style={{ borderColor: ACCENT_COLORS[i] }}
-                >
-                  <div className="text-2xl font-bold text-white">{stat.value}</div>
-                  <div className="text-sm text-white/50">{stat.label}</div>
-                </div>
-              ))}
             </div>
           </div>
 

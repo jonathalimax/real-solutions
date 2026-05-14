@@ -34,7 +34,7 @@ export default function Services({ language }: ServicesProps) {
   const subtitle = language === 'pt-BR' ? 'Soluções completas para alavancar seu negócio' : 'Complete solutions to boost your business'
 
   return (
-    <section ref={ref as React.RefObject<HTMLElement>} className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="services" ref={ref as React.RefObject<HTMLElement>} className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className={`text-center mb-16 animate-on-scroll animate-scale-fade ${isVisible ? 'is-visible' : ''}`}>
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">{title}</h2>

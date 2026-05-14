@@ -7,6 +7,9 @@ interface SocialProofProps {
   language: 'pt-BR' | 'en'
 }
 
+// Set to true when real client reviews are available
+const SHOW_TESTIMONIALS = false
+
 const testimonials = [
   {
     name: 'Ana Beatriz',
@@ -43,6 +46,8 @@ const testimonials = [
 export default function SocialProof({ language }: SocialProofProps) {
   const { ref, isVisible } = useInView()
   const label = language === 'pt-BR' ? 'O que nossos clientes dizem' : 'What our clients say'
+
+  if (!SHOW_TESTIMONIALS) return null
 
   return (
     <section ref={ref as React.RefObject<HTMLElement>} className="py-16 px-4 sm:px-6 lg:px-8 border-y border-white/8">

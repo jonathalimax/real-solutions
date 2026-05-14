@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 
 interface PricingProps {
   language: 'pt-BR' | 'en'
+  onSelectPlan: (planName: string) => void
 }
 
 const content = {
@@ -66,13 +67,9 @@ const content = {
 
 const DELAYS = [0, 150, 300] as const
 
-export default function Pricing({ language }: PricingProps) {
+export default function Pricing({ language, onSelectPlan }: PricingProps) {
   const { ref, isVisible } = useInView()
   const text = content[language]
-
-  const scrollToForm = () => {
-    document.getElementById('cta-form')?.scrollIntoView({ behavior: 'smooth' })
-  }
 
   return (
     <section ref={ref as React.RefObject<HTMLElement>} className="py-20 px-4 sm:px-6 lg:px-8">
@@ -133,7 +130,7 @@ export default function Pricing({ language }: PricingProps) {
               </ul>
 
               <Button
-                onClick={scrollToForm}
+                onClick={() => onSelectPlan(plan.name)}
                 className="w-full border-0"
                 style={
                   plan.highlighted

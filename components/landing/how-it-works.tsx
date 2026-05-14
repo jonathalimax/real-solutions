@@ -50,9 +50,9 @@ export default function HowItWorks({ language }: HowItWorksProps) {
               <div
                 className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 relative z-10"
                 style={{
-                  background: 'linear-gradient(135deg, rgba(20,184,166,0.2), rgba(99,102,241,0.2))',
-                  border: '1px solid rgba(20,184,166,0.4)',
-                  boxShadow: '0 0 20px rgba(20,184,166,0.15)',
+                  background: 'linear-gradient(135deg, #0d2a2a, #0f1535)',
+                  border: '2px solid rgba(20,184,166,0.6)',
+                  boxShadow: '0 0 24px rgba(20,184,166,0.25), inset 0 0 12px rgba(20,184,166,0.1)',
                 }}
               >
                 <span

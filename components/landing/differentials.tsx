@@ -10,17 +10,17 @@ const ICON_COLORS = ['#14b8a6', '#6366f1', '#0ea5e9', '#14b8a6', '#6366f1', '#0e
 
 const content = {
   'pt-BR': [
-    { icon: '⚡', title: 'Velocidade', description: 'Entrega em sprints de 2 semanas' },
+    { icon: '⚡', title: 'Entrega Rápida', description: 'Do briefing ao produto final em semanas, não em meses' },
     { icon: '🎯', title: 'Resultado Focado', description: 'Métricas que importam para seu negócio' },
-    { icon: '👥', title: 'Time Dedicado', description: 'Arquiteto, dev, designer e PM exclusivos' },
+    { icon: '🤖', title: 'Agentes de IA', description: 'Arquiteto, dev, designer e PM — todos movidos por agentes de IA' },
     { icon: '🔒', title: 'Segurança', description: 'Padrões enterprise desde o dia 1' },
     { icon: '💰', title: 'Transparência', description: 'Sem custos ocultos, tudo documentado' },
     { icon: '🚀', title: 'Escalabilidade', description: 'Tecnologia preparada para o crescimento' },
   ],
   en: [
-    { icon: '⚡', title: 'Speed', description: 'Delivery in 2-week sprints' },
+    { icon: '⚡', title: 'Fast Delivery', description: 'From briefing to final product in weeks, not months' },
     { icon: '🎯', title: 'Results-Focused', description: 'Metrics that matter to your business' },
-    { icon: '👥', title: 'Dedicated Team', description: 'Architect, dev, designer, and PM exclusive' },
+    { icon: '🤖', title: 'AI Agents', description: 'Architect, dev, designer and PM — all powered by AI agents' },
     { icon: '🔒', title: 'Security', description: 'Enterprise standards from day 1' },
     { icon: '💰', title: 'Transparency', description: 'No hidden costs, everything documented' },
     { icon: '🚀', title: 'Scalability', description: 'Technology ready for growth' },
