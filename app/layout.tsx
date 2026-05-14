@@ -7,8 +7,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Soluções Digitais Premium | Crescimento Garantido',
-  description: 'Transformamos negócios com aplicativos, websites, automação e bots de WhatsApp. Resultados comprovados para startups e empresas.',
+  title: 'Real Solutions | Transforme seu Negócio',
+  description: 'Apps, websites, automação e bots que crescem com seu negócio. Soluções digitais de impacto para transformar sua empresa.',
   generator: 'v0.app',
   icons: {
     icon: [

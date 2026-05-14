@@ -11,13 +11,13 @@ const content = {
     title: 'Transforme seu negócio com soluções digitais de impacto',
     subtitle: 'Criamos aplicativos, websites, automações e bots que crescem com você',
     cta: 'Começar um projeto',
-    urgency: 'Próximas vagas: 2 spots disponíveis',
+    urgency: 'Crescemos juntos - sem limites de escala',
   },
   en: {
     title: 'Transform your business with impactful digital solutions',
     subtitle: 'We create apps, websites, automations and bots that grow with you',
     cta: 'Start a project',
-    urgency: 'Next slots: 2 spots available',
+    urgency: 'We grow together - unlimited scale',
   },
 }
 

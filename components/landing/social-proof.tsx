@@ -3,10 +3,9 @@ interface SocialProofProps {
 }
 
 const companies = [
-  { name: 'Tech Startup A', verified: true },
-  { name: 'Growth Corp', verified: true },
-  { name: 'Digital Agency', verified: true },
-  { name: 'E-commerce Plus', verified: true },
+  { name: 'Bradesco', url: 'https://banco.bradesco/html/classic/promocoes/aplicativo-bradesco-cartoes/index.shtm', verified: true },
+  { name: 'Globo G1', url: 'https://g1.globo.com/', verified: true },
+  { name: 'Sword Health', url: 'https://swordhealth.com/', verified: true },
 ]
 
 export default function SocialProof({ language }: SocialProofProps) {

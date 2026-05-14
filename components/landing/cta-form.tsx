@@ -18,33 +18,45 @@ interface CTAFormProps {
 const content = {
   'pt-BR': {
     title: 'Pronto para crescer?',
-    subtitle: 'Deixe seus dados que entramos em contato',
-    service: 'Que serviço você precisa?',
-    phone: 'Seu WhatsApp',
-    cta: 'Começar conversa',
+    subtitle: 'Conte com a gente - responderemos em 24h',
+    service: 'O que você precisa?',
+    phone: 'Seu WhatsApp (DDD + número)',
+    cta: 'Iniciar conversa',
     services: [
-      { value: 'Aplicativo', label: 'Aplicativo Mobile' },
+      { value: 'Aplicativo', label: 'App Mobile' },
       { value: 'Website', label: 'Website' },
-      { value: 'Automação', label: 'Automação' },
-      { value: 'Bot de WhatsApp', label: 'Bot de WhatsApp' },
-      { value: 'Consultoria', label: 'Consultoria' },
+      { value: 'Automação', label: 'Automação de processos' },
+      { value: 'Bot', label: 'Bot WhatsApp' },
+      { value: 'Consultoria', label: 'Consultoria técnica' },
     ],
-    whatsappMessage: 'Oi, vim pelo site e quero melhorar meu negócio',
+    whatsappMessages: {
+      'Aplicativo': 'Oi! Gostaria de conhecer melhor as soluções de app mobile para meu negócio',
+      'Website': 'Oi! Tenho interesse em um website profissional para minha empresa',
+      'Automação': 'Oi! Preciso automatizar processos do meu negócio',
+      'Bot': 'Oi! Quero um bot de WhatsApp para melhorar meu atendimento',
+      'Consultoria': 'Oi! Gostaria de uma consultoria técnica para meus projetos',
+    }
   },
   en: {
     title: 'Ready to grow?',
-    subtitle: 'Leave your details and we&apos;ll get in touch',
-    service: 'What service do you need?',
-    phone: 'Your WhatsApp',
+    subtitle: 'Get in touch - we&apos;ll respond in 24h',
+    service: 'What do you need?',
+    phone: 'Your WhatsApp (area code + number)',
     cta: 'Start conversation',
     services: [
       { value: 'Aplicativo', label: 'Mobile App' },
       { value: 'Website', label: 'Website' },
-      { value: 'Automação', label: 'Automation' },
-      { value: 'Bot de WhatsApp', label: 'WhatsApp Bot' },
-      { value: 'Consultoria', label: 'Consulting' },
+      { value: 'Automação', label: 'Process Automation' },
+      { value: 'Bot', label: 'WhatsApp Bot' },
+      { value: 'Consultoria', label: 'Technical Consulting' },
     ],
-    whatsappMessage: 'Hi, I found you on the website and want to improve my business',
+    whatsappMessages: {
+      'Aplicativo': 'Hi! I\'d like to know more about mobile app solutions for my business',
+      'Website': 'Hi! I\'m interested in a professional website for my company',
+      'Automação': 'Hi! I need to automate my business processes',
+      'Bot': 'Hi! I want a WhatsApp bot to improve my customer service',
+      'Consultoria': 'Hi! I\'d like technical consulting for my projects',
+    }
   },
 }
 
@@ -57,6 +69,7 @@ export default function CTAForm({ language }: CTAFormProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setMessage('')
 
     if (!phone || !service) {
       setMessage(language === 'pt-BR' ? 'Preencha todos os campos' : 'Fill all fields')
@@ -76,9 +89,10 @@ export default function CTAForm({ language }: CTAFormProps) {
       })
 
       if (response.ok) {
-        // Redirect to WhatsApp
+        // Redirect to WhatsApp with dynamic message based on service
         const phoneNumber = phone.replace(/\D/g, '')
-        const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text.whatsappMessage)}`
+        const message = content[language].whatsappMessages[service as keyof typeof content[typeof language]['whatsappMessages']]
+        const waLink = `https://wa.me/55${phoneNumber}?text=${encodeURIComponent(message)}`
         window.location.href = waLink
       } else {
         setMessage(language === 'pt-BR' ? 'Erro ao enviar. Tente novamente.' : 'Error sending. Try again.')
@@ -114,11 +128,14 @@ export default function CTAForm({ language }: CTAFormProps) {
               <label className="block text-sm font-medium text-foreground mb-2">
                 {text.service}
               </label>
-              <Select value={service} onValueChange={setService}>
+              <Select value={service || 'placeholder'} onValueChange={(val) => val !== 'placeholder' && setService(val)}>
                 <SelectTrigger className="w-full">
-                  <SelectValue />
+                  <SelectValue placeholder={text.service} />
                 </SelectTrigger>
                 <SelectContent>
+                  <SelectItem value="placeholder" disabled>
+                    {text.service}
+                  </SelectItem>
                   {text.services.map((svc) => (
                     <SelectItem key={svc.value} value={svc.value}>
                       {svc.label}
@@ -134,15 +151,15 @@ export default function CTAForm({ language }: CTAFormProps) {
               </label>
               <Input
                 type="tel"
-                placeholder="+55 11 99999-9999"
+                placeholder="11 99999-9999"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 className="w-full"
               />
               <p className="text-xs text-muted-foreground mt-2">
                 {language === 'pt-BR'
-                  ? 'Você será redirecionado para WhatsApp após enviar'
-                  : 'You will be redirected to WhatsApp after sending'}
+                  ? 'Será aberto o WhatsApp com uma mensagem personalizada'
+                  : 'WhatsApp will open with a personalized message'}
               </p>
             </div>
 

@@ -12,12 +12,14 @@ import Pricing from '@/components/landing/pricing'
 import CTAForm from '@/components/landing/cta-form'
 import Footer from '@/components/landing/footer'
 import Header from '@/components/landing/header'
+import AnimatedBackground from '@/components/animated-background'
 
 export default function Home() {
   const [language, setLanguage] = useState<'pt-BR' | 'en'>('pt-BR')
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      <AnimatedBackground />
       <Header language={language} setLanguage={setLanguage} />
       <main>
         <Hero language={language} />
