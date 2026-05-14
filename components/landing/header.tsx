@@ -13,12 +13,9 @@ export default function Header({ language, setLanguage }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 border-b border-white/8 backdrop-blur-md bg-[#0a1628]/80">
       <nav className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-[#14b8a6] shadow-[0_0_8px_#14b8a6]" />
-          <span className="text-xl font-bold text-white tracking-tight">
-            Real Solutions
-          </span>
-        </div>
+        <span className="text-xl font-bold text-white tracking-tight">
+          Real Solutions
+        </span>
 
         <div className="flex items-center gap-4">
           <Button
