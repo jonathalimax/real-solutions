@@ -1,30 +1,70 @@
 export default function AnimatedBackground() {
   return (
-    <div className="fixed inset-0 -z-20 pointer-events-none overflow-hidden">
-      {/* Animated gradient orbs */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl opacity-20" 
-           style={{ animation: 'float 15s ease-in-out infinite' }} />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl opacity-10"
-           style={{ animation: 'float 20s ease-in-out infinite reverse' }} />
-      <div className="absolute top-1/2 right-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl opacity-10"
-           style={{ animation: 'float 25s ease-in-out infinite' }} />
-
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px) translateX(0px);
-          }
-          25% {
-            transform: translateY(-20px) translateX(10px);
-          }
-          50% {
-            transform: translateY(-40px) translateX(-10px);
-          }
-          75% {
-            transform: translateY(-20px) translateX(10px);
-          }
-        }
-      `}</style>
+    <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
+      {/* Teal orb — top left */}
+      <div
+        className="absolute rounded-full blur-3xl"
+        style={{
+          top: '-80px',
+          left: '10%',
+          width: '400px',
+          height: '400px',
+          background: 'radial-gradient(circle, rgba(20,184,166,0.35) 0%, transparent 70%)',
+          animation: 'float-orb 18s ease-in-out infinite',
+        }}
+      />
+      {/* Indigo orb — right side */}
+      <div
+        className="absolute rounded-full blur-3xl"
+        style={{
+          top: '20%',
+          right: '-60px',
+          width: '320px',
+          height: '320px',
+          background: 'radial-gradient(circle, rgba(99,102,241,0.3) 0%, transparent 70%)',
+          animation: 'float-orb 22s ease-in-out infinite reverse',
+          animationDelay: '-6s',
+        }}
+      />
+      {/* Sky blue orb — center */}
+      <div
+        className="absolute rounded-full blur-3xl"
+        style={{
+          top: '50%',
+          left: '50%',
+          width: '280px',
+          height: '280px',
+          background: 'radial-gradient(circle, rgba(14,165,233,0.25) 0%, transparent 70%)',
+          animation: 'pulse-glow 14s ease-in-out infinite',
+          animationDelay: '-3s',
+        }}
+      />
+      {/* Teal orb — bottom right */}
+      <div
+        className="absolute rounded-full blur-3xl"
+        style={{
+          bottom: '-40px',
+          right: '15%',
+          width: '360px',
+          height: '360px',
+          background: 'radial-gradient(circle, rgba(20,184,166,0.25) 0%, transparent 70%)',
+          animation: 'float-orb 20s ease-in-out infinite',
+          animationDelay: '-10s',
+        }}
+      />
+      {/* Indigo orb — bottom left */}
+      <div
+        className="absolute rounded-full blur-3xl"
+        style={{
+          bottom: '10%',
+          left: '-40px',
+          width: '240px',
+          height: '240px',
+          background: 'radial-gradient(circle, rgba(99,102,241,0.2) 0%, transparent 70%)',
+          animation: 'float-orb 16s ease-in-out infinite reverse',
+          animationDelay: '-8s',
+        }}
+      />
     </div>
   )
 }
