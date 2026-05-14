@@ -1,12 +1,12 @@
 export default function AnimatedBackground() {
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden bg-background">
+    <div className="fixed inset-0 -z-20 pointer-events-none overflow-hidden">
       {/* Animated gradient orbs */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl opacity-30 animate-pulse" 
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl opacity-20" 
            style={{ animation: 'float 15s ease-in-out infinite' }} />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl opacity-20 animate-pulse"
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl opacity-10"
            style={{ animation: 'float 20s ease-in-out infinite reverse' }} />
-      <div className="absolute top-1/2 right-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl opacity-15"
+      <div className="absolute top-1/2 right-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl opacity-10"
            style={{ animation: 'float 25s ease-in-out infinite' }} />
 
       <style jsx>{`
