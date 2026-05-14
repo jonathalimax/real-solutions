@@ -1,6 +1,12 @@
+'use client'
+
+import { useInView } from '@/hooks/use-in-view'
+
 interface DifferentialsProps {
   language: 'pt-BR' | 'en'
 }
+
+const ICON_COLORS = ['#14b8a6', '#6366f1', '#0ea5e9', '#14b8a6', '#6366f1', '#0ea5e9'] as const
 
 const content = {
   'pt-BR': [
@@ -21,30 +27,39 @@ const content = {
   ],
 }
 
+const DELAYS = [0, 75, 150, 225, 300, 375] as const
+
 export default function Differentials({ language }: DifferentialsProps) {
+  const { ref, isVisible } = useInView()
   const items = content[language]
   const title = language === 'pt-BR' ? 'Por que escolher a gente' : 'Why choose us'
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-secondary/20">
+    <section ref={ref as React.RefObject<HTMLElement>} className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <h2 className="text-4xl sm:text-5xl font-bold text-foreground text-center mb-16">
+        <h2 className={`text-4xl sm:text-5xl font-bold text-white text-center mb-16 animate-on-scroll animate-scale-fade ${isVisible ? 'is-visible' : ''}`}>
           {title}
         </h2>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {items.map((item) => (
+          {items.map((item, i) => (
             <div
               key={item.title}
-              className="border border-border/50 rounded-lg p-8 bg-background hover:bg-secondary/30 transition-all duration-300"
+              className={`glass-card p-8 group hover:scale-[1.02] transition-transform duration-300 animate-on-scroll animate-slide-up ${isVisible ? 'is-visible' : ''}`}
+              style={{ transitionDelay: `${DELAYS[i]}ms`, borderColor: `${ICON_COLORS[i]}18` }}
             >
-              <div className="text-4xl mb-4">{item.icon}</div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">
-                {item.title}
-              </h3>
-              <p className="text-muted-foreground">
-                {item.description}
-              </p>
+              <div
+                className="w-11 h-11 rounded-xl flex items-center justify-center text-2xl mb-5"
+                style={{
+                  background: `${ICON_COLORS[i]}18`,
+                  border: `1px solid ${ICON_COLORS[i]}40`,
+                  boxShadow: `0 0 12px ${ICON_COLORS[i]}20`,
+                }}
+              >
+                {item.icon}
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
+              <p className="text-white/50">{item.description}</p>
             </div>
           ))}
         </div>
