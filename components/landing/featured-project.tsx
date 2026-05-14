@@ -5,22 +5,22 @@ interface FeaturedProjectProps {
 const content = {
   'pt-BR': {
     title: 'Projeto em destaque',
-    subtitle: 'Realwise - Plataforma de Imóveis',
-    description: 'Aumentamos a taxa de conversão em 340% com redesign e otimização de UX',
-    results: [
-      { label: 'Aumento em Conversão', value: '+340%' },
-      { label: 'Redução de Bounce Rate', value: '-65%' },
-      { label: 'ROI em 3 meses', value: '+520%' },
+    subtitle: 'Realwise - Sistema Financeiro Digital',
+    description: 'Plataforma financeira completa com gestão de receitas, despesas, investimentos e planejamento. Tudo em um só lugar para você controlar seu dinheiro.',
+    features: [
+      { title: 'Gestão Completa', items: ['Receitas e despesas', 'Controle de cartões', 'Importação de extratos'] },
+      { title: 'Investimentos', items: ['Acompanhe ações', 'Integração com B3', 'Análise de carteira'] },
+      { title: 'Planejamento', items: ['Orçamentos', 'Metas de economia', 'Análise de tendências'] },
     ],
   },
   en: {
     title: 'Featured Project',
-    subtitle: 'Realwise - Real Estate Platform',
-    description: 'We increased conversion rate by 340% with redesign and UX optimization',
-    results: [
-      { label: 'Conversion Increase', value: '+340%' },
-      { label: 'Bounce Rate Reduction', value: '-65%' },
-      { label: 'ROI in 3 months', value: '+520%' },
+    subtitle: 'Realwise - Digital Financial System',
+    description: 'Complete financial platform with income, expense, investment and planning management. Everything in one place to control your money.',
+    features: [
+      { title: 'Full Management', items: ['Income and expenses', 'Card control', 'Statement import'] },
+      { title: 'Investments', items: ['Track stocks', 'B3 integration', 'Portfolio analysis'] },
+      { title: 'Planning', items: ['Budgets', 'Savings goals', 'Trend analysis'] },
     ],
   },
 }
@@ -31,11 +31,19 @@ export default function FeaturedProject({ language }: FeaturedProjectProps) {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
           <div className="bg-secondary/50 border border-border/50 rounded-lg aspect-video flex items-center justify-center">
-            <span className="text-muted-foreground text-lg">
-              {language === 'pt-BR' ? 'Preview do Projeto' : 'Project Preview'}
-            </span>
+            <a 
+              href="https://realwise.com.br" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-center hover:opacity-80 transition-opacity"
+            >
+              <span className="text-muted-foreground text-lg font-semibold">
+                Realwise
+              </span>
+              <p className="text-sm text-muted-foreground mt-2">Visite o projeto</p>
+            </a>
           </div>
 
           <div>
@@ -49,18 +57,18 @@ export default function FeaturedProject({ language }: FeaturedProjectProps) {
               {text.description}
             </p>
 
-            <div className="grid grid-cols-3 gap-4">
-              {text.results.map((result) => (
-                <div
-                  key={result.label}
-                  className="border border-border/50 rounded-lg p-4 bg-secondary/20"
-                >
-                  <div className="text-2xl font-bold text-primary mb-1">
-                    {result.value}
-                  </div>
-                  <div className="text-xs text-muted-foreground">
-                    {result.label}
-                  </div>
+            <div className="space-y-6">
+              {text.features.map((feature) => (
+                <div key={feature.title} className="border border-border/50 rounded-lg p-4 bg-secondary/20">
+                  <h3 className="text-lg font-semibold text-foreground mb-3">{feature.title}</h3>
+                  <ul className="space-y-2">
+                    {feature.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <span className="text-primary font-bold mt-1">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>

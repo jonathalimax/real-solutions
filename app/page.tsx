@@ -12,23 +12,43 @@ import Pricing from '@/components/landing/pricing'
 import CTAForm from '@/components/landing/cta-form'
 import Footer from '@/components/landing/footer'
 import Header from '@/components/landing/header'
+import AnimatedBackground from '@/components/animated-background'
 
 export default function Home() {
   const [language, setLanguage] = useState<'pt-BR' | 'en'>('pt-BR')
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      <AnimatedBackground />
       <Header language={language} setLanguage={setLanguage} />
       <main>
-        <Hero language={language} />
-        <SocialProof language={language} />
-        <Services language={language} />
-        <HowItWorks language={language} />
-        <FeaturedProject language={language} />
-        <Differentials language={language} />
-        <WhatToExpect language={language} />
-        <Pricing language={language} />
-        <CTAForm language={language} />
+        <div className="opacity-0 animate-in fade-in duration-700">
+          <Hero language={language} />
+        </div>
+        <div className="opacity-0 animate-in fade-in duration-700" style={{ animationDelay: '100ms' }}>
+          <SocialProof language={language} />
+        </div>
+        <div className="opacity-0 animate-in fade-in duration-700" style={{ animationDelay: '200ms' }}>
+          <Services language={language} />
+        </div>
+        <div className="opacity-0 animate-in fade-in duration-700" style={{ animationDelay: '300ms' }}>
+          <HowItWorks language={language} />
+        </div>
+        <div className="opacity-0 animate-in fade-in duration-700" style={{ animationDelay: '400ms' }}>
+          <FeaturedProject language={language} />
+        </div>
+        <div className="opacity-0 animate-in fade-in duration-700" style={{ animationDelay: '500ms' }}>
+          <Differentials language={language} />
+        </div>
+        <div className="opacity-0 animate-in fade-in duration-700" style={{ animationDelay: '600ms' }}>
+          <WhatToExpect language={language} />
+        </div>
+        <div className="opacity-0 animate-in fade-in duration-700" style={{ animationDelay: '700ms' }}>
+          <Pricing language={language} />
+        </div>
+        <div className="opacity-0 animate-in fade-in duration-700" style={{ animationDelay: '800ms' }}>
+          <CTAForm language={language} />
+        </div>
       </main>
       <Footer language={language} />
     </div>

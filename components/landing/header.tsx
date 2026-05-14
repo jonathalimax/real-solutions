@@ -16,7 +16,7 @@ export default function Header({ language, setLanguage }: HeaderProps) {
       <nav className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="text-xl font-bold text-foreground">
-            {language === 'pt-BR' ? 'Digital Pro' : 'Digital Pro'}
+            {language === 'pt-BR' ? 'Real Solutions' : 'Real Solutions'}
           </div>
         </div>
 
