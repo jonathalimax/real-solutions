@@ -1,6 +1,6 @@
 export default function AnimatedBackground() {
   return (
-    <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
+    <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
       {/* Teal orb — top left */}
       <div
         className="absolute rounded-full blur-3xl"

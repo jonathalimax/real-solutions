@@ -28,6 +28,7 @@ export default function Home() {
   return (
     <div className="min-h-screen relative">
       <AnimatedBackground />
+      <div className="relative z-10">
       <Header language={language} setLanguage={setLanguage} />
       <main>
         <Hero language={language} />
@@ -41,6 +42,7 @@ export default function Home() {
         <CTAForm language={language} selectedPlan={selectedPlan} />
       </main>
       <Footer language={language} />
+      </div>
     </div>
   )
 }

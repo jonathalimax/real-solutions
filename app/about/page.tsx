@@ -65,6 +65,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen relative">
       <AnimatedBackground />
+      <div className="relative z-10">
       <Header language={language} setLanguage={setLanguage} />
 
       <main className="relative px-4 sm:px-6 lg:px-8">
@@ -304,6 +305,7 @@ export default function AboutPage() {
       </main>
 
       <Footer language={language} />
+      </div>
     </div>
   )
 }
