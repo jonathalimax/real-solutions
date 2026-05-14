@@ -51,6 +51,24 @@ export async function POST(request: NextRequest) {
 
     // Create session token
     const token = crypto.randomBytes(32).toString('hex')
+    
+    // Store token in database
+    const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString()
+    const { error: tokenError } = await supabase
+      .from('auth_tokens')
+      .insert([
+        {
+          admin_user_id: data.id,
+          token: token,
+          expires_at: expiresAt,
+        },
+      ])
+
+    if (tokenError) {
+      console.error('Error storing token:', tokenError)
+      return NextResponse.json({ error: 'Failed to create session' }, { status: 500 })
+    }
+
     const response = NextResponse.json({
       success: true,
       email: data.email,

@@ -13,23 +13,27 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Check if user is authenticated via session cookie
+    // Check if user is authenticated via verification endpoint
     const checkAuth = async () => {
       try {
-        // Check if admin_session cookie exists
-        const cookies = document.cookie.split('; ').reduce((acc, cookie) => {
-          const [key, value] = cookie.split('=')
-          acc[key] = value
-          return acc
-        }, {} as Record<string, string>)
+        const response = await fetch('/api/auth/verify', {
+          method: 'GET',
+          credentials: 'include',
+        })
 
-        if (cookies['auth_token']) {
-          setAuthenticated(true)
+        if (response.ok) {
+          const data = await response.json()
+          if (data.authenticated) {
+            setAuthenticated(true)
+          } else {
+            router.push('/admin/login')
+          }
         } else {
           router.push('/admin/login')
         }
       } catch (error) {
         console.error('Auth check error:', error)
+        router.push('/admin/login')
       } finally {
         setLoading(false)
       }
