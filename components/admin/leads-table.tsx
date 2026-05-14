@@ -22,7 +22,7 @@ const statuses = ['new', 'contacted', 'negotiation', 'closed']
 
 export default function LeadsTable() {
   const [leads, setLeads] = useState<Lead[]>([])
-  const [filterStatus, setFilterStatus] = useState('')
+  const [filterStatus, setFilterStatus] = useState('all')
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -67,7 +67,7 @@ export default function LeadsTable() {
     }
   }
 
-  const filteredLeads = filterStatus
+  const filteredLeads = filterStatus !== 'all'
     ? leads.filter(lead => lead.status === filterStatus)
     : leads
 
@@ -93,7 +93,7 @@ export default function LeadsTable() {
               <SelectValue placeholder="All statuses" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All statuses</SelectItem>
+              <SelectItem value="all">All statuses</SelectItem>
               {statuses.map(status => (
                 <SelectItem key={status} value={status}>
                   {status.charAt(0).toUpperCase() + status.slice(1)}
