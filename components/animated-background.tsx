@@ -9,7 +9,7 @@ export default function AnimatedBackground() {
           left: '10%',
           width: '400px',
           height: '400px',
-          background: 'radial-gradient(circle, rgba(20,184,166,0.35) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(20,184,166,0.55) 0%, transparent 70%)',
           animation: 'float-orb 18s ease-in-out infinite',
         }}
       />
@@ -21,7 +21,7 @@ export default function AnimatedBackground() {
           right: '-60px',
           width: '320px',
           height: '320px',
-          background: 'radial-gradient(circle, rgba(99,102,241,0.3) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(99,102,241,0.5) 0%, transparent 70%)',
           animation: 'float-orb 22s ease-in-out infinite reverse',
           animationDelay: '-6s',
         }}
@@ -34,7 +34,7 @@ export default function AnimatedBackground() {
           left: '50%',
           width: '280px',
           height: '280px',
-          background: 'radial-gradient(circle, rgba(14,165,233,0.25) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(14,165,233,0.45) 0%, transparent 70%)',
           animation: 'pulse-glow 14s ease-in-out infinite',
           animationDelay: '-3s',
         }}
@@ -47,7 +47,7 @@ export default function AnimatedBackground() {
           right: '15%',
           width: '360px',
           height: '360px',
-          background: 'radial-gradient(circle, rgba(20,184,166,0.25) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(20,184,166,0.4) 0%, transparent 70%)',
           animation: 'float-orb 20s ease-in-out infinite',
           animationDelay: '-10s',
         }}
@@ -60,7 +60,7 @@ export default function AnimatedBackground() {
           left: '-40px',
           width: '240px',
           height: '240px',
-          background: 'radial-gradient(circle, rgba(99,102,241,0.2) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(99,102,241,0.4) 0%, transparent 70%)',
           animation: 'float-orb 16s ease-in-out infinite reverse',
           animationDelay: '-8s',
         }}

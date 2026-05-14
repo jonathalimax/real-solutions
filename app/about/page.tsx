@@ -63,7 +63,7 @@ export default function AboutPage() {
   const isPT = language === 'pt-BR'
 
   return (
-    <div className="min-h-screen bg-background relative">
+    <div className="min-h-screen relative">
       <AnimatedBackground />
       <Header language={language} setLanguage={setLanguage} />
 
