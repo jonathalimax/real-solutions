@@ -4,13 +4,11 @@ interface FooterProps {
 
 const content = {
   'pt-BR': {
-    company: 'Digital Pro',
     description: 'Transformamos negócios com soluções digitais de impacto',
     links: [
       { name: 'Serviços', href: '#' },
       { name: 'Portfolio', href: '#' },
       { name: 'Sobre', href: '#' },
-      { name: 'Blog', href: '#' },
       { name: 'Contato', href: '#' },
     ],
     legal: [
@@ -20,13 +18,11 @@ const content = {
     year: new Date().getFullYear(),
   },
   en: {
-    company: 'Digital Pro',
     description: 'We transform businesses with impactful digital solutions',
     links: [
       { name: 'Services', href: '#' },
       { name: 'Portfolio', href: '#' },
       { name: 'About', href: '#' },
-      { name: 'Blog', href: '#' },
       { name: 'Contact', href: '#' },
     ],
     legal: [
@@ -41,29 +37,25 @@ export default function Footer({ language }: FooterProps) {
   const text = content[language]
 
   return (
-    <footer className="border-t border-border/50 bg-secondary/20">
+    <footer className="border-t border-white/8 bg-[#080e1a]">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           <div>
-            <h3 className="text-lg font-bold text-foreground mb-2">
-              {text.company}
-            </h3>
-            <p className="text-muted-foreground">
-              {text.description}
-            </p>
+            <div className="flex items-center gap-2 mb-3">
+              <div className="w-2 h-2 rounded-full bg-[#14b8a6] shadow-[0_0_8px_#14b8a6]" />
+              <span className="text-lg font-bold text-white">Real Solutions</span>
+            </div>
+            <p className="text-white/40">{text.description}</p>
           </div>
 
           <div>
-            <h4 className="font-semibold text-foreground mb-4">
-              {language === 'pt-BR' ? 'Links' : 'Links'}
+            <h4 className="font-semibold text-white/60 mb-4 text-sm uppercase tracking-widest">
+              Links
             </h4>
             <ul className="space-y-2">
               {text.links.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
-                  >
+                  <a href={link.href} className="text-white/40 hover:text-[#14b8a6] transition-colors text-sm">
                     {link.name}
                   </a>
                 </li>
@@ -72,16 +64,11 @@ export default function Footer({ language }: FooterProps) {
           </div>
 
           <div>
-            <h4 className="font-semibold text-foreground mb-4">
-              {language === 'pt-BR' ? 'Legal' : 'Legal'}
-            </h4>
+            <h4 className="font-semibold text-white/60 mb-4 text-sm uppercase tracking-widest">Legal</h4>
             <ul className="space-y-2">
               {text.legal.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
-                  >
+                  <a href={link.href} className="text-white/40 hover:text-[#14b8a6] transition-colors text-sm">
                     {link.name}
                   </a>
                 </li>
@@ -90,10 +77,14 @@ export default function Footer({ language }: FooterProps) {
           </div>
         </div>
 
-        <div className="border-t border-border/50 pt-8 text-center text-sm text-muted-foreground">
-          <p>
-            © {text.year} {text.company}. {language === 'pt-BR' ? 'Todos os direitos reservados.' : 'All rights reserved.'}
+        <div className="border-t border-white/8 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-white/30">
+            © {text.year} Real Solutions. {language === 'pt-BR' ? 'Todos os direitos reservados.' : 'All rights reserved.'}
           </p>
+          <div className="flex items-center gap-1.5">
+            <div className="w-1 h-1 rounded-full bg-[#14b8a6]" />
+            <span className="text-xs text-white/20">Powered by Real Solutions</span>
+          </div>
         </div>
       </div>
     </footer>
