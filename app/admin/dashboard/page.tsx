@@ -13,21 +13,14 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Check if user is authenticated via verification endpoint
-    const checkAuth = async () => {
+    // Check if user has auth_token cookie
+    const checkAuth = () => {
       try {
-        const response = await fetch('/api/auth/verify', {
-          method: 'GET',
-          credentials: 'include',
-        })
-
-        if (response.ok) {
-          const data = await response.json()
-          if (data.authenticated) {
-            setAuthenticated(true)
-          } else {
-            router.push('/admin/login')
-          }
+        const cookies = document.cookie.split('; ')
+        const hasAuthToken = cookies.some(cookie => cookie.startsWith('auth_token='))
+        
+        if (hasAuthToken) {
+          setAuthenticated(true)
         } else {
           router.push('/admin/login')
         }
