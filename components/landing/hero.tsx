@@ -100,10 +100,10 @@ export default function Hero({ language }: HeroProps) {
               }}
             >
               <Image
-                src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Team working on digital solutions"
-                width={800}
-                height={533}
+                src="/hero-meeting.png"
+                alt="Team presenting digital solutions in Real Solutions office"
+                width={1664}
+                height={936}
                 priority
                 className="w-full h-auto object-cover"
               />
