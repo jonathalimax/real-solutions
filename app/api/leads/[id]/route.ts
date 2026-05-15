@@ -12,7 +12,7 @@ const supabase = createClient(supabaseUrl, supabaseServiceKey)
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Check for auth token
@@ -25,8 +25,11 @@ export async function PATCH(
       )
     }
 
-    const { id } = params
-    const { status } = await request.json()
+    const { id } = await params
+    const body = await request.json()
+    const { status } = body
+
+    console.log('Update request - id:', id, 'body:', body, 'status:', status)
 
     if (!status) {
       return NextResponse.json(
@@ -39,11 +42,12 @@ export async function PATCH(
       .from('leads')
       .update({ status, updated_at: new Date().toISOString() })
       .eq('id', id)
-      .select()
+      .select('id, status, updated_at')
 
     if (error) {
+      console.error('Supabase update error:', error)
       return NextResponse.json(
-        { error: 'Failed to update lead' },
+        { error: 'Failed to update lead', details: error.message },
         { status: 500 }
       )
     }
