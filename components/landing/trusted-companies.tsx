@@ -21,7 +21,7 @@ interface Company {
 const companies: Company[] = [
   {
     name: 'Bradesco',
-    logoUrl: 'https://logo.clearbit.com/bradesco.com.br',
+    logoUrl: '/logos/bradesco.png',
     role: {
       'pt-BR': 'Desenvolvedor iOS',
       en: 'iOS Developer',
@@ -31,7 +31,7 @@ const companies: Company[] = [
   },
   {
     name: 'Globo',
-    logoUrl: 'https://logo.clearbit.com/globo.com',
+    logoUrl: '/logos/g1.svg',
     role: {
       'pt-BR': 'Líder Técnico',
       en: 'Technical Leader',
@@ -41,7 +41,7 @@ const companies: Company[] = [
   },
   {
     name: 'Sword Health',
-    logoUrl: 'https://logo.clearbit.com/swordhealth.com',
+    logoUrl: '/logos/sword-health.png',
     role: {
       'pt-BR': 'Líder Técnico',
       en: 'Technical Leader',
