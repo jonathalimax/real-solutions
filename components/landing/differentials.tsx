@@ -45,8 +45,10 @@ export default function Differentials({ language }: DifferentialsProps) {
           {items.map((item, i) => (
             <div
               key={item.title}
-              className={`glass-card p-8 group hover:scale-[1.02] transition-transform duration-300 animate-on-scroll animate-slide-up ${isVisible ? 'is-visible' : ''}`}
-              style={{ transitionDelay: `${DELAYS[i]}ms`, borderColor: `${ICON_COLORS[i]}18` }}
+              className={`glass-card p-8 group animate-on-scroll animate-slide-up ${isVisible ? 'is-visible' : ''}`}
+              style={{ transitionDelay: `${DELAYS[i]}ms`, borderColor: `${ICON_COLORS[i]}18`, transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)' }}
+              onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-8px)')}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
             >
               <div
                 className="w-11 h-11 rounded-xl flex items-center justify-center text-2xl mb-5"

@@ -9,8 +9,8 @@ interface FeaturedProjectProps {
 
 const content = {
   'pt-BR': {
-    label: 'Projeto em destaque',
-    title: 'Realwise — Sistema Financeiro Digital',
+    label: 'Fundador do Realwise',
+    title: 'Sistema Financeiro Digital',
     visitLabel: 'Visitar projeto →',
     features: [
       { title: 'Gestão Completa', items: ['Receitas e despesas', 'Controle de cartões', 'Importação de extratos'] },
@@ -19,8 +19,8 @@ const content = {
     ],
   },
   en: {
-    label: 'Featured Project',
-    title: 'Realwise — Digital Financial System',
+    label: 'Founder of Realwise',
+    title: 'Digital Financial System',
     visitLabel: 'Visit project →',
     features: [
       { title: 'Full Management', items: ['Income and expenses', 'Card control', 'Statement import'] },
@@ -49,7 +49,6 @@ export default function FeaturedProject({ language }: FeaturedProjectProps) {
               className="block relative rounded-2xl overflow-hidden group"
               style={{
                 boxShadow: '0 0 40px rgba(99,102,241,0.2), 0 0 80px rgba(20,184,166,0.1)',
-                border: '1px solid rgba(99,102,241,0.3)',
               }}
             >
               <Image
@@ -57,7 +56,7 @@ export default function FeaturedProject({ language }: FeaturedProjectProps) {
                 alt="Realwise financial platform"
                 width={1400}
                 height={933}
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-auto object-cover transition-transform duration-500"
               />
               <div
                 className="absolute inset-0"

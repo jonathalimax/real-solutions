@@ -69,16 +69,19 @@ export default function TrustedCompanies({ language }: TrustedCompaniesProps) {
               href={company.link}
               target="_blank"
               rel="noopener noreferrer"
-              className={`glass-card p-6 animate-on-scroll animate-slide-up transition-transform hover:scale-105 cursor-pointer ${isVisible ? 'is-visible' : ''}`}
+              className={`glass-card p-6 animate-on-scroll animate-slide-up cursor-pointer ${isVisible ? 'is-visible' : ''}`}
               style={{
                 transitionDelay: `${i * 75}ms`,
+                transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                 borderColor: `${company.accentColor}22`,
               }}
+              onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-8px)')}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
             >
               <div className="flex flex-col items-center text-center gap-4">
                 <div
                   className="rounded-lg overflow-hidden flex-shrink-0 bg-white/5 p-2"
-                  style={{ width: 80, height: 80, border: `2px solid ${company.accentColor}66` }}
+                  style={{ width: 80, height: 80 }}
                 >
                   <Image
                     src={company.logoUrl}

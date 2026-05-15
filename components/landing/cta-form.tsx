@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { useIsMobile } from '@/hooks/use-mobile'
 import {
   Select,
   SelectContent,
@@ -68,6 +69,7 @@ const PLAN_NAMES = {
 
 export default function CTAForm({ language, selectedPlan }: CTAFormProps) {
   const text = content[language]
+  const isMobile = useIsMobile()
   const [activePlan, setActivePlan] = useState(selectedPlan ?? '')
   const [service, setService] = useState('')
   const [phone, setPhone] = useState('')
@@ -77,6 +79,18 @@ export default function CTAForm({ language, selectedPlan }: CTAFormProps) {
   // Sync when parent updates selectedPlan (pricing card click)
   if (selectedPlan !== undefined && selectedPlan !== activePlan && selectedPlan !== '') {
     setActivePlan(selectedPlan)
+  }
+
+  const formatPhone = (value: string) => {
+    const numbers = value.replace(/\D/g, '')
+    if (numbers.length <= 2) return numbers
+    if (numbers.length <= 7) return `(${numbers.slice(0, 2)}) ${numbers.slice(2)}`
+    return `(${numbers.slice(0, 2)}) ${numbers.slice(2, 7)}-${numbers.slice(7, 11)}`
+  }
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formatted = formatPhone(e.target.value)
+    setPhone(formatted)
   }
 
   const planLabels = language === 'pt-BR'
@@ -195,10 +209,11 @@ export default function CTAForm({ language, selectedPlan }: CTAFormProps) {
                 {text.phone}
               </label>
               <Input
-                type="tel"
-                placeholder="11 99999-9999"
+                type={isMobile ? 'number' : 'tel'}
+                placeholder="(11) 99999-9999"
                 value={phone}
-                onChange={(e) => setPhone(e.target.value)}
+                onChange={handlePhoneChange}
+                inputMode={isMobile ? 'numeric' : 'tel'}
                 className="w-full bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-[#14b8a6] focus-visible:ring-[#14b8a6]/30"
               />
               <p className="text-xs text-white/30 mt-2">
