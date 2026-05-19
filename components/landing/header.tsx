@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 
 interface HeaderProps {
@@ -13,9 +14,10 @@ export default function Header({ language, setLanguage }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 border-b border-white/8 backdrop-blur-md bg-[#0a1628]/80">
       <nav className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        <span className="text-xl font-bold text-white tracking-tight">
-          Real Solutions
-        </span>
+        <div className="flex items-center gap-2.5">
+          <Image src="/logo.png" alt="Real Solutions" width={32} height={32} className="rounded-md" />
+          <span className="text-xl font-bold text-white tracking-tight">Real Solutions</span>
+        </div>
 
         <div className="flex items-center gap-4">
           <Button

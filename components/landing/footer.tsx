@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 interface FooterProps {
   language: 'pt-BR' | 'en'
 }
@@ -49,8 +51,8 @@ export default function Footer({ language }: FooterProps) {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           <div>
-            <div className="flex items-center gap-2 mb-3">
-              <div className="w-2 h-2 rounded-full bg-[#14b8a6] shadow-[0_0_8px_#14b8a6]" />
+            <div className="flex items-center gap-2.5 mb-3">
+              <Image src="/logo.png" alt="Real Solutions" width={28} height={28} className="rounded-md" />
               <span className="text-lg font-bold text-white">Real Solutions</span>
             </div>
             <p className="text-white/40">{text.description}</p>
