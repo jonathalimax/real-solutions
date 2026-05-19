@@ -17,13 +17,13 @@ const content = {
     plans: [
       {
         name: 'Starter',
-        price: 'R$ 5.000',
+        price: 'R$ 1.000',
         description: 'Perfeito para começar online',
         features: ['Landing page', 'Formulário de contato', 'SEO básico', '1 mês suporte'],
       },
       {
         name: 'Growth',
-        price: 'R$ 10.000',
+        price: 'R$ 5.000',
         description: 'Para negócios em crescimento',
         features: ['Website completo', 'Integrações', 'Sistemas básicos', '3 meses suporte'],
         highlighted: true,
@@ -44,13 +44,13 @@ const content = {
     plans: [
       {
         name: 'Starter',
-        price: 'R$ 5,000',
+        price: 'R$ 1,000',
         description: 'Perfect to start online',
         features: ['Landing page', 'Contact form', 'Basic SEO', '1 month support'],
       },
       {
         name: 'Growth',
-        price: 'R$ 10,000',
+        price: 'R$ 5,000',
         description: 'For growing businesses',
         features: ['Complete website', 'Integrations', 'Basic systems', '3 months support'],
         highlighted: true,

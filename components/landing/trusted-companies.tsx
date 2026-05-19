@@ -23,8 +23,8 @@ const companies: Company[] = [
     name: 'Bradesco',
     logoUrl: '/logos/bradesco.png',
     role: {
-      'pt-BR': 'Desenvolvedor iOS',
-      en: 'iOS Developer',
+      'pt-BR': 'Parceiro',
+      en: 'Partner',
     },
     link: 'https://www.bradesco.com.br',
     accentColor: '#f59e0b',
@@ -33,8 +33,8 @@ const companies: Company[] = [
     name: 'Globo',
     logoUrl: '/logos/g1.svg',
     role: {
-      'pt-BR': 'Líder Técnico',
-      en: 'Technical Leader',
+      'pt-BR': 'Parceiro',
+      en: 'Partner',
     },
     link: 'https://www.globo.com',
     accentColor: '#0ea5e9',
@@ -43,8 +43,8 @@ const companies: Company[] = [
     name: 'Sword Health',
     logoUrl: '/logos/sword-health.png',
     role: {
-      'pt-BR': 'Líder Técnico',
-      en: 'Technical Leader',
+      'pt-BR': 'Parceiro',
+      en: 'Partner',
     },
     link: 'https://www.swordhealth.com',
     accentColor: '#6366f1',

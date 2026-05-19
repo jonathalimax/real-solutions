@@ -2,9 +2,16 @@ interface FooterProps {
   language: 'pt-BR' | 'en'
 }
 
+const contact = {
+  email: 'contato@arealsolutions.com.br',
+  whatsapp: '41992310339',
+  whatsappLabel: 'WhatsApp',
+}
+
 const content = {
   'pt-BR': {
     description: 'Transformamos negócios com soluções digitais de impacto',
+    contactLabel: 'Contato',
     links: [
       { name: 'Serviços', href: '/#services' },
       { name: 'Portfolio', href: '/#featured-project' },
@@ -19,6 +26,7 @@ const content = {
   },
   en: {
     description: 'We transform businesses with impactful digital solutions',
+    contactLabel: 'Contact',
     links: [
       { name: 'Services', href: '/#services' },
       { name: 'Portfolio', href: '/#featured-project' },
@@ -64,15 +72,18 @@ export default function Footer({ language }: FooterProps) {
           </div>
 
           <div>
-            <h4 className="font-semibold text-white/60 mb-4 text-sm uppercase tracking-widest">Legal</h4>
+            <h4 className="font-semibold text-white/60 mb-4 text-sm uppercase tracking-widest">{text.contactLabel}</h4>
             <ul className="space-y-2">
-              {text.legal.map((link) => (
-                <li key={link.name}>
-                  <a href={link.href} className="text-white/40 hover:text-[#14b8a6] transition-colors text-sm">
-                    {link.name}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a href={`mailto:${contact.email}`} className="text-white/40 hover:text-[#14b8a6] transition-colors text-sm">
+                  {contact.email}
+                </a>
+              </li>
+              <li>
+                <a href={`https://wa.me/55${contact.whatsapp}`} target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-[#14b8a6] transition-colors text-sm">
+                  {contact.whatsappLabel}: ({contact.whatsapp.slice(0, 2)}) {contact.whatsapp.slice(2, 7)}-{contact.whatsapp.slice(7)}
+                </a>
+              </li>
             </ul>
           </div>
         </div>

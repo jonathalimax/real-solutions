@@ -6,9 +6,9 @@ const content = {
   'pt-BR': {
     title: 'Como funciona nosso processo',
     items: [
-      'Entendemos seu negócio em detalhes (1h)',
+      'Entendemos seu negócio em detalhes',
       'Criamos uma proposta clara com investimento (3 dias)',
-      'Apresentação do plano e alinhamento (1 semana)',
+      'Apresentação do plano e alinhamento',
       'Primeira versão funcional pronta (2 semanas)',
       'Seus feedbacks e ajustes',
       'Sistema pronto para usar',
@@ -19,9 +19,9 @@ const content = {
   en: {
     title: 'How our process works',
     items: [
-      'We understand your business in detail (1h)',
+      'We understand your business in detail',
       'We create a clear proposal with investment (3 days)',
-      'Plan presentation and alignment (1 week)',
+      'Plan presentation and alignment',
       'First working version ready (2 weeks)',
       'Your feedback and adjustments',
       'System ready to use',

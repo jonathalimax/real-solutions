@@ -52,10 +52,10 @@ export default function FeaturedProject({ language }: FeaturedProjectProps) {
               }}
             >
               <Image
-                src="/realwise-preview.png"
+                src="/realwise-preview-mobile.png"
                 alt="Realwise financial platform"
-                width={1400}
-                height={933}
+                width={833}
+                height={1800}
                 className="w-full h-auto object-cover transition-transform duration-500"
               />
               <div
