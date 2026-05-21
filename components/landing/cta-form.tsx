@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { useIsMobile } from '@/hooks/use-mobile'
 import {
   Select,
   SelectContent,
@@ -69,7 +68,6 @@ const PLAN_NAMES = {
 
 export default function CTAForm({ language, selectedPlan }: CTAFormProps) {
   const text = content[language]
-  const isMobile = useIsMobile()
   const [activePlan, setActivePlan] = useState(selectedPlan ?? '')
   const [service, setService] = useState('')
   const [phone, setPhone] = useState('')
@@ -209,11 +207,11 @@ export default function CTAForm({ language, selectedPlan }: CTAFormProps) {
                 {text.phone}
               </label>
               <Input
-                type={isMobile ? 'number' : 'tel'}
+                type="tel"
                 placeholder="(11) 99999-9999"
                 value={phone}
                 onChange={handlePhoneChange}
-                inputMode={isMobile ? 'numeric' : 'tel'}
+                inputMode="numeric"
                 className="w-full bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-[#14b8a6] focus-visible:ring-[#14b8a6]/30"
               />
               <p className="text-xs text-white/30 mt-2">
